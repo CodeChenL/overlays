@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable vendor GPU driver";
+		compatible = "rockchip,rk3588";
+		category = "misc";
+		exclusive = "gpu", "gpu_mali";
+		description = "Enable vendor GPU driver and disable Panthor DRM driver.";
+	};
+};
+
+&gpu {
+	status = "disabled";
+};
+
+&gpu_mali {
+	status = "okay";
+	mali-supply = <&vdd_gpu_s0>;
+	mem-supply = <&vdd_gpu_mem_s0>;
+};
