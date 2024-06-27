@@ -21,6 +21,7 @@
 	remote_support_psci = <1>;
 	status = "okay";
 	pinctrl-0 = <&pwm1_pin>;
+	interrupt-parent = <&gpio4>;
 	pinctrl-names = "default";
 	interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH 0>;
 

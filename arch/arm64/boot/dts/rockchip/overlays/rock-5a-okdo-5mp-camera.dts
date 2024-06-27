@@ -26,11 +26,15 @@
 
 &i2c3 {
 	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
 
 	ov5647: ov5647@36 {
 		status = "okay";
 		compatible = "ovti,ov5647";
 		reg = <0x36>;
+		#address-cells = <1>;
+		#size-cells = <0>;
 		clocks = <&clk_cam_25m>;
 		pwdn-gpios = <&gpio1 RK_PD3 GPIO_ACTIVE_LOW>;
 		clock-names = "ext_cam_clk";

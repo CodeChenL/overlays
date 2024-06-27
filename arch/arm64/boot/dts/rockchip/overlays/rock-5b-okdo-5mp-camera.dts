@@ -33,6 +33,8 @@
 		status = "okay";
 		compatible = "ovti,ov5647";
 		reg = <0x36>;
+		#address-cells = <1>;
+		#size-cells = <0>;
 		clocks = <&clk_cam_25m>;
 		pwdn-gpios = <&gpio1 RK_PB0 GPIO_ACTIVE_LOW>;
 		clock-names = "ext_cam_clk";
