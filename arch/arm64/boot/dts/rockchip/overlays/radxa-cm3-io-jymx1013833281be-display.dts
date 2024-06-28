@@ -87,10 +87,14 @@
 
 &dsi0 {
 	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
 	dsi0_panel: panel@0 {
 		status = "okay";
 		compatible = "simple-panel-dsi";
 		reg = <0>;
+		#address-cells = <1>;
+		#size-cells = <0>;
 		backlight = <&lcd0_backlight>;
 
 		power-supply = <&vcc_mipi_lcd0>;

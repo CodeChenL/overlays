@@ -18,12 +18,16 @@ INT = GPIOAO_3";
 
 &i2c3 {
 	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
 	pinctrl-0 = <&i2c3_sck_a_pins &i2c3_sda_a_pins>;
 	pinctrl-names = "default";
 
 	ds3231: ds3231@68 {
 		compatible = "maxim,ds3231";
 		reg = <0x68>;
+		#address-cells = <1>;
+		#size-cells = <0>;
 		#clock-cells = <1>;
 		interrupt-parent = <&gpio_intc>;
 		interrupts = <3 IRQ_TYPE_EDGE_FALLING>;

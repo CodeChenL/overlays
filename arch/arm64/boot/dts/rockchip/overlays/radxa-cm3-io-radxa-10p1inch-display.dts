@@ -96,11 +96,15 @@
 
 &dsi1 {
 	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
 
 	dsi1_panel: panel@0 {
 		status = "okay";
 		compatible = "simple-panel-dsi";
 		reg = <0>;
+		#address-cells = <1>;
+		#size-cells = <0>;
 		backlight = <&dsi1_backlight>;
 
 		power-supply = <&vcc_lcd_mipi1>;
@@ -405,11 +409,15 @@
 &i2c2 {
 	status = "okay";
 	pinctrl-0 = <&i2c2m1_xfer>;
+	#address-cells = <1>;
+	#size-cells = <0>;
 
 	focaltech: focaltech@38 {
 		status = "okay";
 		compatible = "focaltech,fts";
 		reg = <0x38>;
+		#address-cells = <1>;
+		#size-cells = <0>;
 		power-supply = <&vcc_lcd_tp>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&touch_gpio>;

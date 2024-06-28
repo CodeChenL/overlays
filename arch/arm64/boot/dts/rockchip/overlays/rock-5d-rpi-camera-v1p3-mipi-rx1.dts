@@ -25,6 +25,8 @@
 
 &i2c6 {
 	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c6m0_xfer>;
 	
@@ -32,6 +34,8 @@
 		status = "okay";
 		compatible = "ovti,ov5647";
 		reg = <0x36>;
+		#address-cells = <1>;
+		#size-cells = <0>;
 		clocks = <&clk_cam1_25m>;
 		pwdn-gpios = <&gpio0 RK_PC5 GPIO_ACTIVE_LOW>;
 		clock-names = "ext_cam_clk";

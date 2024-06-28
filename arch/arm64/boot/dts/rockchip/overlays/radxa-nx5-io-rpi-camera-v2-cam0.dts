@@ -37,10 +37,14 @@
 &i2c4 {
 	status = "okay";
 	pinctrl-0 = <&i2c4m2_xfer>;
+	#address-cells = <1>;
+	#size-cells = <0>;
 
 	camera0_imx219: camera0-imx219@10 {
 		compatible = "sony,imx219";
 		reg = <0x10>;
+		#address-cells = <1>;
+		#size-cells = <0>;
 
 		clocks = <&clk_cam0_24m>;
 		clock-names = "xvclk";
