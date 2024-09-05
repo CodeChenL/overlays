@@ -1,0 +1,51 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Switch all UART TX to DMA mode";
+		compatible = "rockchip,rk3566", "rockchip,rk3568", "rockchip,rk3588";
+		category = "misc";
+		description = "Switch all UART TX to DMA mode";
+	};
+};
+
+&uart0 {
+	dma-names = "tx";
+};
+
+&uart1 {
+	dma-names = "tx";
+};
+
+&uart2 {
+	dma-names = "tx";
+};
+
+&uart3 {
+	dma-names = "tx";
+};
+
+&uart4 {
+	dma-names = "tx";
+};
+
+&uart5 {
+	dma-names = "tx";
+};
+
+&uart6 {
+	dma-names = "tx";
+};
+
+&uart7 {
+	dma-names = "tx";
+};
+
+&uart8 {
+	dma-names = "tx";
+};
+
+&uart9 {
+	dma-names = "tx";
+};
