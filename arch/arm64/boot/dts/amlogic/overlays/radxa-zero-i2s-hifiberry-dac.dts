@@ -24,6 +24,7 @@
 
 	sound {
 		audio-aux-devs = <&tdmout_a>, <&tdmout_b>;
+		audio-widgets = "Line", "Lineout";
 		audio-routing = "TDMOUT_A IN 0", "FRDDR_A OUT 0",
 				"TDMOUT_A IN 1", "FRDDR_B OUT 0",
 				"TDMOUT_A IN 2", "FRDDR_C OUT 0",
@@ -31,20 +32,51 @@
 				"TDMOUT_B IN 0", "FRDDR_A OUT 1",
 				"TDMOUT_B IN 1", "FRDDR_B OUT 1",
 				"TDMOUT_B IN 2", "FRDDR_C OUT 1",
-				"TDM_B Playback", "TDMOUT_B OUT";
+				"TDM_B Playback", "TDMOUT_B OUT",
+				"Lineout", "ACODEC LOLP",
+				"Lineout", "ACODEC LORP";
 
-		dai-link@5 {
+		/* 8ch hdmi interface */
+		dai-link-3 {
+			codec-0 {
+				sound-dai = <&tohdmitx TOHDMITX_I2S_IN_B>;
+			};
+
+			codec-1 {
+				sound-dai = <&toacodec TOACODEC_IN_B>;
+			};
+
+			codec {
+				sound-dai = <&tohdmitx TOHDMITX_I2S_IN_B>;
+				status = "disabled";
+			};
+		};
+
+		dai-link-5 {
 			sound-dai = <&tdmif_a>;
 			dai-format = "i2s";
 			dai-tdm-slot-tx-mask-0 = <1 1>;
 			mclk-fs = <256>;
 
-			codec@0 {
-				sound-dai = <&pcm5102a_codec>;
+			codec-0 {
+				sound-dai = <&tohdmitx TOHDMITX_I2S_IN_A>;
 			};
 
-			codec@1 {
-				sound-dai = <&tohdmitx TOHDMITX_I2S_IN_A>;
+			codec-1 {
+				sound-dai = <&toacodec TOACODEC_IN_A>;
+			};
+
+			codec-2 {
+				sound-dai = <&pcm5102a_codec>;
+			};
+		};
+
+		/* acodec glue */
+		dai-link-6 {
+			sound-dai = <&toacodec TOACODEC_OUT>;
+
+			codec {
+				sound-dai = <&acodec>;
 			};
 		};
 	};
@@ -63,5 +95,14 @@
 };
 
 &tdmout_a {
+	status = "okay";
+};
+
+&toacodec {
+	status = "okay";
+};
+
+&acodec {
+	AVDD-supply = <&vddao_1v8>;
 	status = "okay";
 };
