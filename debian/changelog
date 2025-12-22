@@ -1,3 +1,14 @@
+radxa-overlays (0.2.11) noble; urgency=medium
+
+  [ Jiali Chen ]
+  * fix: amlogic: some Hack for linux-qcom
+  * feat: amlogic: add radxa-zero2-radxa-display-8hd
+
+  [ CodeChenL ]
+  * feat: add pkg.conf.template
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Mon, 22 Dec 2025 10:41:08 +0000
+
 radxa-overlays (0.2.10) noble; urgency=medium
 
   [ Mitchell Ma ]
